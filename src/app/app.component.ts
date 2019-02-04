@@ -29,6 +29,14 @@ export class AppComponent {
           validator: Validators.pattern('^[a-zA-Z]+$'),
           message: 'Accept only text'
         }
+        /* TODO: next
+        causalities:[
+            name:"ifOtherNotNull"
+            causality:{
+              model:'email'
+              disabled: (model)=>{return model!==null}
+          }
+        ]  */
       ]
     },
     {
@@ -102,5 +110,8 @@ export class AppComponent {
     }
   ];
 
-  submit(value: any) {}
+  submit(value: any) {
+
+
+  }
 }
