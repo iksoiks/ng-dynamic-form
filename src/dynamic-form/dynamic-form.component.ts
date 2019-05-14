@@ -1,32 +1,57 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { FieldConfig } from './field.interface';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FieldConfig} from './field.interface';
+import ValidatorsMapper from './ValidatorsMapper';
 
 @Component({
   exportAs: 'dynamicForm',
   selector: 'dynamic-form',
   template: `
-  <form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)">
-    <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form">
-    </ng-container>
-  </form>
+      <form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)" (cancel)="onCancel($event)">
+          <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form"></ng-container>
+      </form>
   `,
   styles: []
 })
-export class DynamicFormComponent implements OnInit {
+export class DynamicFormComponent implements OnInit, OnChanges {
   @Input() fields: FieldConfig[] = [];
 
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() cancel: EventEmitter<any> = new EventEmitter<any>();
+
+  validatorMapper = ValidatorsMapper.getInstance();
 
   form: FormGroup;
 
-  get value() {
-    return this.form.value;
+  constructor(private fb: FormBuilder) {
   }
-  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.form = this.createControl();
+  }
+
+  ngOnChanges(changes) {
+    console.log(changes);
+    if (changes.fields && changes.fields.currentValue) {
+      const fields = changes.fields.currentValue;
+      this.form = this.createControl(fields);
+      for (const field of fields) {
+        const {name, type, value} = field;
+        if (type !== 'button' && value) {
+          this.form.controls[name].patchValue(value);
+        }
+      }
+    }
+  }
+
+  patchValue(key, value) {
+    if (!this.form.controls[key]) {
+      return;
+    }
+    this.form.controls[key].patchValue(value);
+  }
+
+  getValue(key) {
+    return this.form.controls[key].value;
   }
 
   onSubmit(event: Event) {
@@ -39,10 +64,18 @@ export class DynamicFormComponent implements OnInit {
     }
   }
 
-  createControl() {
+  onCancel(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.cancel.emit(this.form.value);
+  }
+
+  createControl(fields) {
     const group = this.fb.group({});
-    this.fields.forEach(field => {
-      if (field.type === 'button') { return; }
+    fields.forEach(field => {
+      if (field.type === 'button') {
+        return;
+      }
       const control = this.fb.control(
         field.value,
         this.bindValidations(field.validations || [])
@@ -56,7 +89,7 @@ export class DynamicFormComponent implements OnInit {
     if (validations.length > 0) {
       const validList = [];
       validations.forEach(valid => {
-        validList.push(valid.validator);
+        validList.push(this.createValidator(valid.name, valid.validationParams));
       });
       return Validators.compose(validList);
     }
@@ -66,7 +99,19 @@ export class DynamicFormComponent implements OnInit {
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
-      control.markAsTouched({ onlySelf: true });
+      control.markAsTouched({onlySelf: true});
     });
   }
+
+  private createValidator(name: string, validationParams?: any) {
+    const defaultValidators = {
+      'required': Validators.required,
+      'pattern': Validators.pattern(validationParams)
+    };
+    const validators = {...defaultValidators, ...this.validatorMapper.validators};
+    return validators[name];
+  }
+
+
 }
+

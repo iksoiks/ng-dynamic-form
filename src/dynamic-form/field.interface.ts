@@ -1,15 +1,17 @@
 export interface Validator {
   name: string;
-  validator: any;
+  validationParams?: any;
+  validationFunction?: any;
   message: string;
 }
 export interface FieldConfig {
+  name: string;
+  type: string;
   label?: string;
-  name?: string;
   inputType?: string;
   options?: string[];
   collections?: any;
-  type: string;
   value?: any;
   validations?: Validator[];
+  events?: any[];
 }

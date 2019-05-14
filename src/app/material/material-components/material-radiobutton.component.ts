@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldConfig } from '../../field.interface';
 @Component({
   selector: 'app-radiobutton',
   template: `
@@ -18,8 +17,8 @@ import { FieldConfig } from '../../field.interface';
     }
   `]
 })
-export class RadiobuttonComponent implements OnInit {
-  field: FieldConfig;
+export class MaterialRadiobuttonComponent implements OnInit {
+  field;
   group: FormGroup;
   constructor() {}
   ngOnInit() {}
