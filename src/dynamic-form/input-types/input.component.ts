@@ -8,7 +8,7 @@ import {FieldConfig} from '../field.interface';
       <div [formGroup]="group">
           <label>{{field.label}}: </label>
           <input [formControlName]="field.name" [placeholder]="field.label" [type]="field.inputType">
-          <ng-container *ngFor="let validation of field.validations;" ngProjectAs="div">
+          <ng-container *ngFor="let validation of field.validations;">
               <div *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</div>
           </ng-container>
       </div>

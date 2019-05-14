@@ -31,7 +31,6 @@ export class AppComponent {
           }
         };
         this.regConfig = res;
-        console.log(this.form.getValue('term'));
       });
   }
 

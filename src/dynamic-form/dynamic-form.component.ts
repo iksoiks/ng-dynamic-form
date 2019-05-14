@@ -30,7 +30,6 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
-    console.log(changes);
     if (changes.fields && changes.fields.currentValue) {
       const fields = changes.fields.currentValue;
       this.form = this.createControl(fields);

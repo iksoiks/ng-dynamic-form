@@ -1,7 +1,4 @@
-import {
-  Directive, ElementRef,
-  NgModule,
-} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { InputComponent } from './input-types/input.component';
 import { ButtonComponent } from './input-types/button.component';

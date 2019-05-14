@@ -9,7 +9,7 @@ import {FormGroup} from '@angular/forms';
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-hint></mat-hint>
-          <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+          <ng-container *ngFor="let validation of field.validations;">
               <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
           </ng-container>
       </mat-form-field>
