@@ -1,6 +1,6 @@
 {
-  "name": "ant-dynamic-form",
-  "version": "0.1.1",
+  "name": "@kernel/ng-dynamic-form",
+  "version": "0.1.0",
   "peerDependencies": {
     "@angular/common": "^2.0.0",
     "@angular/core": "^2.0.0"
