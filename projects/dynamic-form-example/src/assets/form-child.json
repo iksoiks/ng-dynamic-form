@@ -1,6 +1,6 @@
 [
   {
-    "type": "input",
+    "type": "mat-input",
     "label": "Username",
     "inputType": "text",
     "name": "name",
@@ -16,7 +16,43 @@
     ]
   },
   {
-    "type": "input",
+    "type": "mat-input",
+    "label": "Number",
+    "inputType": "number",
+    "name": "number",
+    "validations": [
+      {
+        "name": "min",
+        "validationParams": 2,
+        "message": "too little"
+      },
+      {
+        "name": "max",
+        "validationParams": 4,
+        "message": "too big"
+      }
+    ]
+  },
+  {
+    "type": "mat-input",
+    "label": "Text minmaxlength",
+    "inputType": "text",
+    "name": "simpleText",
+    "validations": [
+      {
+        "name": "minLength",
+        "validationParams": 2,
+        "message": "too short"
+      },
+      {
+        "name": "maxLength",
+        "validationParams": 4,
+        "message": "too long"
+      }
+    ]
+  },
+  {
+    "type": "mat-input",
     "label": "Email Address",
     "inputType": "email",
     "name": "email",
@@ -33,7 +69,7 @@
     ]
   },
   {
-    "type": "radiobutton",
+    "type": "mat-radiobutton",
     "label": "Gender",
     "name": "gender",
     "options": [
@@ -43,18 +79,18 @@
     "value": "Male"
   },
   {
-    "type": "date",
+    "type": "mat-date",
     "label": "DOB",
     "inputType": "date",
     "name": "dob"
   },
   {
-    "type": "custom",
+    "type": "mat-custom",
     "label": "bho",
     "name": "bho"
   },
   {
-    "type": "select",
+    "type": "mat-select",
     "label": "Country",
     "name": "country",
     "value": "UK",
@@ -63,13 +99,13 @@
     ]
   },
   {
-    "type": "checkbox",
+    "type": "mat-checkbox",
     "label": "Accept Terms",
     "name": "term",
     "value": true
   },
   {
-    "type": "button",
+    "type": "mat-button",
     "label": "Save"
   }
 ]

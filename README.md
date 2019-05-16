@@ -16,7 +16,8 @@ import {DynamicFormModule} from '../dynamic-form/dynamic-form.module';
   declarations: [AppComponent],  
   imports: [  
     ...  
-    DynamicFormModule,  
+    DynamicFormModule.forRoot()
+     // or DynamicFormModule.forChild() for lazy loaded modules ,  
   ],  
   providers: [],  
   bootstrap: [AppComponent],  
@@ -132,17 +133,16 @@ export class CustomFieldComponent implements OnInit {
   ngOnInit() {  
  }}
 ```
-in order to add custom components in form schema you need to add it in module's entryComponents and add it to ComponentMapper Singleton:
+in order to add custom components in form schema you need to
+ add it in module's entryComponents and add it to DynamicFormModule.:
 ```
 ... 
-import ComponentMapper from '../dynamic-form/ComponentMapper';  
 import {CustomFieldComponent} from './form-components/custom.component';  
   
   
 const customComponents = {  
   'custom': CustomFieldComponent  
 };  
-ComponentMapper.getInstance().addComponents(customComponents);  
 
 @NgModule({  
   declarations: [
@@ -150,8 +150,8 @@ ComponentMapper.getInstance().addComponents(customComponents);
   CustomFieldComponent
   ],  
   ...   
-  entryComponents: [  
-    CustomFieldComponent,  
+  imports: [  
+    DynamicFormModule.forRoot({customComponents}),  
   ]
 })  
 export class AppModule {  
@@ -162,23 +162,21 @@ create custom validators with `createAsyncValidator` function
 in order to add custom validators in form schema you need to add it to ValidatorMapper Singleton:
 ```
 ... 
-import {createAsyncValidator} from '../dynamic-form/dynamic-form.lib';  
-import ValidatorMapper from '../dynamic-form/ValidatorsMapper';  
+import {createAsyncValidator} from '@dynamic-form';  
   
  ... 
   const customValidators = {  
     'custom': createAsyncValidator('custom', fieldValue => /^ciao$/.test(fieldValue))  
   };  
-ValidatorMapper.getInstance().addValidators(customValidators);
 @NgModule({  
   declarations: [
   ...
   CustomFieldComponent
   ],  
   ...   
-  entryComponents: [  
-    CustomFieldComponent,  
-  ]
+  imports: [  
+      DynamicFormModule.forRoot({customComponents, customValidators}),  
+   ]
 })  
 export class AppModule {  
 }

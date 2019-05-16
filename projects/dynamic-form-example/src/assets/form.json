@@ -1,0 +1,106 @@
+[
+  {
+    "type": "input",
+    "label": "Username",
+    "inputType": "text",
+    "name": "name",
+    "validations": [
+      {
+        "name": "required",
+        "message": "Name Required"
+      },
+      {
+        "name": "custom",
+        "message": "Accept only text"
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "label": "Number",
+    "inputType": "number",
+    "name": "number",
+    "validations": [
+      {
+        "name": "min",
+        "validationParams": 2,
+        "message": "too little"
+      },
+      {
+        "name": "max",
+        "validationParams": 4,
+        "message": "too big"
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "label": "Text minmaxlength",
+    "inputType": "text",
+    "name": "simpleText",
+    "validations": [
+      {
+        "name": "minLength",
+        "validationParams": 2,
+        "message": "too short"
+      },
+      {
+        "name": "maxLength",
+        "validationParams": 4,
+        "message": "too long"
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "label": "Email Address",
+    "inputType": "email",
+    "name": "email",
+    "validations": [
+      {
+        "name": "required",
+        "message": "Email Required"
+      },
+      {
+        "name": "pattern",
+        "validationParams": "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
+        "message": "Invalid email"
+      }
+    ]
+  },
+  {
+    "type": "radiobutton",
+    "label": "Gender",
+    "name": "gender",
+    "options": [
+      "Male",
+      "Female"
+    ],
+    "value": "Male"
+  },
+  {
+    "type": "date",
+    "label": "DOB",
+    "inputType": "date",
+    "name": "dob"
+  },
+  {
+    "type": "select",
+    "label": "Country",
+    "name": "country",
+    "value": "UK",
+    "options": [
+      "UK"
+    ]
+  },
+  {
+    "type": "checkbox",
+    "label": "Accept Terms",
+    "name": "term",
+    "value": true
+  },
+  {
+    "type": "button",
+    "label": "Save"
+  }
+]

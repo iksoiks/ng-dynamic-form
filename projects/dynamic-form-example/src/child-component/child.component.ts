@@ -1,22 +1,22 @@
 import {Component, ViewChild} from '@angular/core';
-import {FieldConfig} from '../dynamic-form/field.interface';
-import {DynamicFormComponent} from '../dynamic-form/dynamic-form.component';
+import {FieldConfig, DynamicFormComponent} from 'projects/dynamic-form/src/public_api';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-child',
   template: `
+      <a [routerLink]="['']">BACKTOPARENT</a>
       <div class="form">
           <dynamic-form [fields]="regConfig" (submit)="submit($event)"></dynamic-form>
       </div>
   `,
   styles: []
 })
-export class AppComponent {
+export class ChildComponent {
   regConfig: FieldConfig[] = [];
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
 
   constructor() {
-    window.fetch('assets/form.json', {method: 'GET'})
+    window.fetch('assets/form-child.json', {method: 'GET'})
       .then(res => res.json())
       .then(res => {
         const fieldsByName = {};

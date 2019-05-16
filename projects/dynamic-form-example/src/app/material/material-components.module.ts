@@ -6,24 +6,14 @@ import {MaterialSelectComponent} from './material-components/material-select.com
 import {MaterialInputComponent} from './material-components/material-input.component';
 import {MaterialDateComponent} from './material-components/material-date.component';
 import {MaterialCheckboxComponent} from './material-components/material-checkbox.component';
-
-import ComponentMapper from '../../dynamic-form/ComponentMapper';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {MaterialModule} from './material.module';
-
-const customComponents = {
-  input: MaterialInputComponent,
-  button: MaterialButtonComponent,
-  select: MaterialSelectComponent,
-  date: MaterialDateComponent,
-  radiobutton: MaterialRadiobuttonComponent,
-  checkbox: MaterialCheckboxComponent
-};
-ComponentMapper.getInstance().addComponents(customComponents);
+import {CustomFieldComponent} from '../form-components/custom.component';
 
 @NgModule({
   declarations: [
+    CustomFieldComponent,
     MaterialButtonComponent,
     MaterialCheckboxComponent,
     MaterialDateComponent,
@@ -31,7 +21,8 @@ ComponentMapper.getInstance().addComponents(customComponents);
     MaterialRadiobuttonComponent,
     MaterialSelectComponent,
   ],
-  entryComponents: [
+  exports: [
+    CustomFieldComponent,
     MaterialButtonComponent,
     MaterialCheckboxComponent,
     MaterialDateComponent,

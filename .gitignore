@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 package-lock.json
+dist
 ### macOS template
 # General
 .DS_Store

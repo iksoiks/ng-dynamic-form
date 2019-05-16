@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {FieldConfig} from './field.interface';
-import ValidatorsMapper from './ValidatorsMapper';
+import {ConfigOptions} from './config.options';
 
 @Component({
   exportAs: 'dynamicForm',
@@ -19,11 +19,9 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
   @Output() cancel: EventEmitter<any> = new EventEmitter<any>();
 
-  validatorMapper = ValidatorsMapper.getInstance();
-
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private config: ConfigOptions) {
   }
 
   ngOnInit() {
@@ -103,12 +101,44 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   }
 
   private createValidator(name: string, validationParams?: any) {
-    const defaultValidators = {
-      'required': Validators.required,
-      'pattern': Validators.pattern(validationParams)
+    const getValidator = (validator: String, type: String, param: any) => {
+      if (typeof param !== type) {
+        throw new Error(`Invalid params for Validators.${validator}(value: ${type})`);
+      }
+      switch (validator) {
+        case 'min':
+          return Validators.min(param);
+        case 'max':
+          return Validators.max(param);
+        case 'minLength':
+          return Validators.minLength(param);
+        case 'maxLength':
+          return Validators.maxLength(param);
+        case 'pattern':
+          return Validators.pattern(param);
+        default:
+          return null;
+      }
     };
-    const validators = {...defaultValidators, ...this.validatorMapper.validators};
-    return validators[name];
+    switch (name) {
+      case 'required':
+        return Validators.required;
+      case 'requiredTrue':
+        return Validators.requiredTrue;
+      case 'email':
+        return Validators.email;
+      case 'min':
+      case 'max':
+      case 'minLength':
+      case 'maxLength':
+        return getValidator(name, 'number', validationParams);
+      case 'pattern':
+        return getValidator(name, 'string', validationParams);
+      default:
+        const {customValidators} = this.config.getConfig();
+        return customValidators[name];
+    }
+
   }
 
 
