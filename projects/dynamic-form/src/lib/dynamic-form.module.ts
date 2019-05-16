@@ -78,11 +78,11 @@ export class DynamicFormModule {
         {
           provide: ANALYZE_FOR_ENTRY_COMPONENTS,
           multi: true,
-          useValue: config
+          useValue: config || {} 
         },
         {
           provide: ConfigToken,
-          useValue: config
+          useValue: config || {} 
         },
         ConfigOptions
       ]
@@ -96,11 +96,11 @@ export class DynamicFormModule {
         {
           provide: ANALYZE_FOR_ENTRY_COMPONENTS,
           multi: true,
-          useValue: config
+          useValue: config || {} 
         },
         {
           provide: ConfigToken,
-          useValue: config
+          useValue: config || {} 
         },
         {
           provide: ConfigOptions,
