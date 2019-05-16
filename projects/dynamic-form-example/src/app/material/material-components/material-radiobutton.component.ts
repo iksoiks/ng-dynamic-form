@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {BaseFieldComponent} from 'projects/dynamic-form/src/public_api';
+
 @Component({
   selector: 'app-radiobutton',
   template: `
@@ -17,9 +18,7 @@ import { FormGroup } from '@angular/forms';
     }
   `]
 })
-export class MaterialRadiobuttonComponent implements OnInit {
-  field;
-  group: FormGroup;
-  constructor() {}
-  ngOnInit() {}
+export class MaterialRadiobuttonComponent extends BaseFieldComponent implements OnInit {
+  ngOnInit() {
+  }
 }

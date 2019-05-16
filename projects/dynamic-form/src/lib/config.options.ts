@@ -38,6 +38,16 @@ export class ConfigOptions {
                     }
                 }
             }
+            if (config.styleGenerators) {
+                if (!this._config.styleGenerators) {
+                    this._config.styleGenerators = {};
+                }
+                for (const key in config.styleGenerators) {
+                    if (config.styleGenerators.hasOwnProperty(key)) {
+                        this._config.styleGenerators[key] = config.styleGenerators[key];
+                    }
+                }
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ import {InputComponent} from './input-types/input.component';
 import {ButtonComponent} from './input-types/button.component';
 import {SelectComponent} from './input-types/select.component';
 import {RadiobuttonComponent} from './input-types/radiobutton.component';
+import stubStyleGenerator from './style-generators/stubStyleGenerator';
 
 @Directive({
   selector: '[dynamicField]'
@@ -28,6 +29,7 @@ export class DynamicFieldDirective implements OnInit {
     radiobutton: RadiobuttonComponent,
     checkbox:  InputComponent
   };
+
   constructor(
     private resolver: ComponentFactoryResolver,
     private container: ViewContainerRef,
@@ -36,7 +38,11 @@ export class DynamicFieldDirective implements OnInit {
   }
 
   ngOnInit() {
-    const {customComponents} = this.config.getConfig();
+    const {
+        customComponents,
+        styleGenerator = stubStyleGenerator
+    } = this.config.getConfig();
+
     const components = {...this.defaultComponents, ...customComponents};
     const factory = this.resolver.resolveComponentFactory(
       components[this.field.type]
@@ -44,5 +50,7 @@ export class DynamicFieldDirective implements OnInit {
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.field = this.field;
     this.componentRef.instance.group = this.group;
+    this.componentRef.instance.elementRef = this.componentRef.location;
+    this.componentRef.instance.applyStyle(styleGenerator(this.field));
   }
 }

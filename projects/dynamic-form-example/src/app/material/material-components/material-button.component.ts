@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {BaseFieldComponent} from 'projects/dynamic-form/src/public_api';
 
 @Component({
   selector: 'app-button',
@@ -10,13 +10,7 @@ import {FormGroup} from '@angular/forms';
   `,
   styles: []
 })
-export class MaterialButtonComponent implements OnInit {
-  field;
-  group: FormGroup;
-
-  constructor() {
-  }
-
+export class MaterialButtonComponent extends BaseFieldComponent implements OnInit {
   ngOnInit() {
   }
 }

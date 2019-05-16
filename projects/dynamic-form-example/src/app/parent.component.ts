@@ -1,11 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import {FieldConfig, DynamicFormComponent} from 'projects/dynamic-form/src/public_api';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-parent',
   template: `
-    <a [routerLink]="['/child']">GOTOCHILD</a>
+      <a [routerLink]="['/child']">GO TO CHILD</a>
       <div class="form">
           <dynamic-form [fields]="regConfig" (submit)="submit($event)"></dynamic-form>
       </div>
@@ -16,7 +15,7 @@ export class ParentComponent {
   regConfig: FieldConfig[] = [];
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
 
-  constructor(public router: Router) {
+  constructor() {
     window.fetch('assets/form.json', {method: 'GET'})
       .then(res => res.json())
       .then(res => {

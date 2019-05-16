@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldConfig } from '../field.interface';
+import {BaseFieldComponent} from '../base.field.component';
 @Component({
   selector: 'app-select',
   template: `
@@ -13,9 +14,7 @@ import { FieldConfig } from '../field.interface';
 `,
   styles: []
 })
-export class SelectComponent implements OnInit {
-  field: FieldConfig;
-  group: FormGroup;
-  constructor() {}
-  ngOnInit() {}
+export class SelectComponent extends BaseFieldComponent implements OnInit {
+  ngOnInit() {
+  }
 }

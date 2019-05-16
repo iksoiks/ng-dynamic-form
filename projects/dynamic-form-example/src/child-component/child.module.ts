@@ -11,8 +11,9 @@ import {MaterialSelectComponent} from '../app/material/material-components/mater
 import {MaterialDateComponent} from '../app/material/material-components/material-date.component';
 import {MaterialRadiobuttonComponent} from '../app/material/material-components/material-radiobutton.component';
 import {MaterialCheckboxComponent} from '../app/material/material-components/material-checkbox.component';
+import {CustomComponents} from 'projects/dynamic-form/src/public_api';
 
-const customComponents = {
+const customComponents: CustomComponents = {
   'mat-input': MaterialInputComponent,
   'mat-button': MaterialButtonComponent,
   'mat-select': MaterialSelectComponent,
@@ -31,7 +32,12 @@ const routes: Route[] = [{
 @NgModule({
   declarations: [ChildComponent],
   imports: [
-    DynamicFormModule.forChild({customComponents}),
+    DynamicFormModule.forChild({
+      customComponents,
+      styleGenerator: (field) => ({
+          color: 'red',
+      })
+    }),
     MaterialComponentsModule,
     RouterModule.forChild(routes)
   ],

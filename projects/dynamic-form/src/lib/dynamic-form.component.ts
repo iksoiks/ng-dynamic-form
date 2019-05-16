@@ -11,7 +11,6 @@ import {ConfigOptions} from './config.options';
           <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form"></ng-container>
       </form>
   `,
-  styles: []
 })
 export class DynamicFormComponent implements OnInit, OnChanges {
   @Input() fields: FieldConfig[] = [];

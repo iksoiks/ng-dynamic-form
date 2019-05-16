@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BaseFieldComponent} from 'projects/dynamic-form/src/public_api';
 
 @Component({
     selector: 'app-custom-component',
@@ -8,14 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
         </div>
     `,
 })
-export class CustomFieldComponent implements OnInit {
-
-    @Input() field;
-    @Input() group;
-
-    constructor() {
-    }
-
+export class CustomFieldComponent extends BaseFieldComponent implements OnInit {
     ngOnInit() {
     }
 }

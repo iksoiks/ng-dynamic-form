@@ -1,10 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FieldConfig} from '../field.interface';
+import {BaseFieldComponent} from '../base.field.component';
 
 @Component({
   selector: 'app-input',
   template: `
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
       <div [formGroup]="group">
           <label>{{field.label}}: </label>
           <input [formControlName]="field.name" [placeholder]="field.label" [type]="field.inputType">
@@ -13,15 +19,9 @@ import {FieldConfig} from '../field.interface';
           </ng-container>
       </div>
   `,
-  styles: []
+  styles: [``]
 })
-export class InputComponent implements OnInit {
-  field: FieldConfig;
-  group: FormGroup;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class InputComponent extends BaseFieldComponent implements OnInit {
+    ngOnInit() {
+    }
 }
