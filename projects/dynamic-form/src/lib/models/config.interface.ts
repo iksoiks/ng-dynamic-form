@@ -1,11 +1,20 @@
-import { Type } from '@angular/core';
-import { ValidatorFn, AsyncValidatorFn } from '@angular/forms';
+import {Type} from '@angular/core';
+import {AsyncValidatorFn, ValidatorFn} from '@angular/forms';
+import {BaseFieldComponent} from '../base.field.component';
+import {FieldConfig} from './field.interface';
+
+export interface CustomComponents {
+    [key: string]: Type<BaseFieldComponent>;
+}
+
+export interface CustomValidators {
+    [key: string]: ValidatorFn | AsyncValidatorFn;
+}
 
 export interface Config {
-    customComponents?: {
-        [key: string]: Type<any>
-    };
-    customValidators?: {
-        [key: string]: ValidatorFn | AsyncValidatorFn;
-    };
+    customComponents?: CustomComponents;
+    customValidators?: CustomValidators;
+    styleGenerators?: StyleGenerator;
 }
+
+export type StyleGenerator = (field: FieldConfig) => any;

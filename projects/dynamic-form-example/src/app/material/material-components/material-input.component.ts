@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {BaseFieldComponent} from '@gruppoanthea/dynamic-form';
 
 @Component({
   selector: 'app-input',
@@ -14,13 +14,10 @@ import {FormGroup} from '@angular/forms';
   `,
   styles: []
 })
-export class MaterialInputComponent implements OnInit {
-  field;
-  group: FormGroup;
-
-  constructor() {
-  }
-
+export class MaterialInputComponent extends BaseFieldComponent implements OnInit {
   ngOnInit() {
+
   }
+
+
 }

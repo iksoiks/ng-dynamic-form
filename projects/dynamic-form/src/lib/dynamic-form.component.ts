@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {FieldConfig} from './field.interface';
+import {FieldConfig} from './models/field.interface';
 import {ConfigOptions} from './config.options';
 
 @Component({
@@ -11,7 +11,6 @@ import {ConfigOptions} from './config.options';
           <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form"></ng-container>
       </form>
   `,
-  styles: []
 })
 export class DynamicFormComponent implements OnInit, OnChanges {
   @Input() fields: FieldConfig[] = [];

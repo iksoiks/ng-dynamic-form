@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {FieldConfig} from '../field.interface';
+import {BaseFieldComponent} from '../base.field.component';
 
 @Component({
   selector: 'app-button',
@@ -11,13 +10,7 @@ import {FieldConfig} from '../field.interface';
   `,
   styles: []
 })
-export class ButtonComponent implements OnInit {
-  field: FieldConfig;
-  group: FormGroup;
-
-  constructor() {
-  }
-
+export class ButtonComponent extends BaseFieldComponent implements OnInit {
   ngOnInit() {
   }
 }

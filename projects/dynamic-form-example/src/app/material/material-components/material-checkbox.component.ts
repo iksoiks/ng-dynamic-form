@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {BaseFieldComponent} from '@gruppoanthea/dynamic-form';
 
 @Component({
   selector: 'app-checkbox',
@@ -10,13 +10,7 @@ import {FormGroup} from '@angular/forms';
   `,
   styles: []
 })
-export class MaterialCheckboxComponent implements OnInit {
-  field;
-  group: FormGroup;
-
-  constructor() {
-  }
-
+export class MaterialCheckboxComponent extends BaseFieldComponent implements OnInit {
   ngOnInit() {
   }
 }

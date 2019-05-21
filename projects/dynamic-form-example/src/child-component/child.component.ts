@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {FieldConfig, DynamicFormComponent} from 'projects/dynamic-form/src/public_api';
+import {FieldConfig, DynamicFormComponent} from '@gruppoanthea/dynamic-form';
 
 @Component({
   selector: 'app-child',
@@ -19,11 +19,13 @@ export class ChildComponent {
     window.fetch('assets/form-child.json', {method: 'GET'})
       .then(res => res.json())
       .then(res => {
+        console.log(this.form);
         const fieldsByName = {};
         res.map(field => fieldsByName[field.name] = field);
         fieldsByName['name'].events = {
-          keyUp: (evt) => {
+          keyUp: (evt, fieldC) => {
             if (evt.target.value.length === 3) {
+              fieldsByName['validationMessage'] = 'blue';
               fieldsByName['country'].options.push('India', 'UK', 'UAE', 'US');
             } else if (evt.target.value.length === 0) {
               fieldsByName['country'].options = [];

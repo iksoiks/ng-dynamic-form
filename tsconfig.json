@@ -17,11 +17,11 @@
       "dom"
     ],
     "paths": {
-      "dynamic-form": [
-        "dist/dynamic-form"
+      "@gruppoanthea/dynamic-form": [
+        "projects/dynamic-form/src"
       ],
-      "dynamic-form/*": [
-        "dist/dynamic-form/*"
+      "@gruppoanthea/dynamic-form/*": [
+        "projects/dynamic-form/src/*"
       ]
     }
   }

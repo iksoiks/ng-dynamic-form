@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import { Config } from './models';
 import { ConfigOptions, ConfigToken } from './config.options';
+import {BaseFieldComponent} from './base.field.component';
 export const FORROOT_GUARD = new InjectionToken<void>('FORROOT_GUARD');
 export class Guard {
   constructor() {}
@@ -29,12 +30,13 @@ export class Guard {
 
 @NgModule({
   declarations: [
+    BaseFieldComponent,
+    DynamicFieldDirective,
+    DynamicFormComponent,
     InputComponent,
     ButtonComponent,
     SelectComponent,
     RadiobuttonComponent,
-    DynamicFieldDirective,
-    DynamicFormComponent,
   ],
   imports: [
     CommonModule,
@@ -78,11 +80,11 @@ export class DynamicFormModule {
         {
           provide: ANALYZE_FOR_ENTRY_COMPONENTS,
           multi: true,
-          useValue: config || {} 
+          useValue: config || {}
         },
         {
           provide: ConfigToken,
-          useValue: config || {} 
+          useValue: config || {}
         },
         ConfigOptions
       ]
@@ -96,11 +98,11 @@ export class DynamicFormModule {
         {
           provide: ANALYZE_FOR_ENTRY_COMPONENTS,
           multi: true,
-          useValue: config || {} 
+          useValue: config || {}
         },
         {
           provide: ConfigToken,
-          useValue: config || {} 
+          useValue: config || {}
         },
         {
           provide: ConfigOptions,

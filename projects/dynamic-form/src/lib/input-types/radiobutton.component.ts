@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldConfig } from '../field.interface';
+import { FieldConfig } from '../models/field.interface';
+import {BaseFieldComponent} from '../base.field.component';
 @Component({
   selector: 'app-radiobutton',
   template: `
@@ -12,9 +13,7 @@ import { FieldConfig } from '../field.interface';
 </div>
 `,
 })
-export class RadiobuttonComponent implements OnInit {
-  field: FieldConfig;
-  group: FormGroup;
-  constructor() {}
-  ngOnInit() {}
+export class RadiobuttonComponent extends BaseFieldComponent implements OnInit {
+  ngOnInit() {
+  }
 }
