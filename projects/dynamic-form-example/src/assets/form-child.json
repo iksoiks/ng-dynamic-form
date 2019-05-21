@@ -2,6 +2,8 @@
   {
     "type": "mat-input",
     "label": "Username",
+    "styles": [
+    ],
     "inputType": "text",
     "name": "name",
     "validations": [
@@ -18,6 +20,10 @@
   {
     "type": "mat-input",
     "label": "Number",
+    "styles": [
+      "default",
+      "shadow"
+    ],
     "inputType": "number",
     "name": "number",
     "validations": [
@@ -36,6 +42,9 @@
   {
     "type": "mat-input",
     "label": "Text minmaxlength",
+    "styles": [
+      "default"
+    ],
     "inputType": "text",
     "name": "simpleText",
     "validations": [
@@ -54,6 +63,9 @@
   {
     "type": "mat-input",
     "label": "Email Address",
+    "styles": [
+      "default"
+    ],
     "inputType": "email",
     "name": "email",
     "validations": [
@@ -71,6 +83,9 @@
   {
     "type": "mat-radiobutton",
     "label": "Gender",
+    "styles": [
+      "default"
+    ],
     "name": "gender",
     "options": [
       "Male",
@@ -81,17 +96,26 @@
   {
     "type": "mat-date",
     "label": "DOB",
+    "styles": [
+      "default"
+    ],
     "inputType": "date",
     "name": "dob"
   },
   {
     "type": "mat-custom",
     "label": "bho",
+    "styles": [
+      "default"
+    ],
     "name": "bho"
   },
   {
     "type": "mat-select",
     "label": "Country",
+    "styles": [
+      "default"
+    ],
     "name": "country",
     "value": "UK",
     "options": [
@@ -101,11 +125,17 @@
   {
     "type": "mat-checkbox",
     "label": "Accept Terms",
+    "styles": [
+      "default"
+    ],
     "name": "term",
     "value": true
   },
   {
     "type": "mat-button",
-    "label": "Save"
+    "label": "Save",
+    "styles": [
+      "default"
+    ]
   }
 ]

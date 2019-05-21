@@ -32,9 +32,11 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     DynamicFormModule.forRoot({
       customValidators,
-      styleGenerators: (field) => ({
-        background: 'yellow',
-      })
+      styleGenerators: {
+        'default': (field) => ({
+          background: 'yellow',
+        })
+      }
     }),
     MaterialComponentsModule,
     RouterModule.forRoot(routes),

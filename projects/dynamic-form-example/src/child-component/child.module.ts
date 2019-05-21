@@ -33,9 +33,14 @@ const routes: Route[] = [{
   imports: [
     DynamicFormModule.forChild({
       customComponents,
-      styleGenerators: (field) => ({
-          color: 'red',
-      })
+      styleGenerators: {
+        'shadow': (field) => {
+          console.log(field);
+          return ({
+            boxShadow: '1px 1px 2px black'
+          });
+        }
+      }
     }),
     MaterialComponentsModule,
     RouterModule.forChild(routes)

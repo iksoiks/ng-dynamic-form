@@ -5,6 +5,7 @@ export interface Validator {
   message: string;
 }
 export interface FieldConfig {
+  styles: string[];
   name: string;
   type: string;
   label?: string;

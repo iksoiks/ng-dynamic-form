@@ -11,10 +11,14 @@ export interface CustomValidators {
     [key: string]: ValidatorFn | AsyncValidatorFn;
 }
 
+export interface StyleGenerators {
+    [key: string]: StyleGenerator;
+}
+
 export interface Config {
     customComponents?: CustomComponents;
     customValidators?: CustomValidators;
-    styleGenerators?: StyleGenerator;
+    styleGenerators?: StyleGenerators;
 }
 
 export type StyleGenerator = (field: FieldConfig) => any;
