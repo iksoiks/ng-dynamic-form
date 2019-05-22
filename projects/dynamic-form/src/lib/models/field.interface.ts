@@ -5,9 +5,9 @@ export interface Validator {
   message: string;
 }
 export interface FieldConfig {
-  styles: string[];
   name: string;
   type: string;
+  component?: string;
   label?: string;
   inputType?: string;
   options?: string[];
@@ -15,4 +15,10 @@ export interface FieldConfig {
   value?: any;
   validations?: Validator[];
   events?: any[];
+
+  /**
+   * Style generators to use.
+   * Default is ['default'].
+   */
+  styles: string[];
 }

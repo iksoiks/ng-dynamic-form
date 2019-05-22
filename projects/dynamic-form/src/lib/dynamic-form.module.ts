@@ -1,32 +1,39 @@
 import {
   ANALYZE_FOR_ENTRY_COMPONENTS,
-  Inject, InjectFlags, InjectionToken, Injector,
+  Inject,
+  InjectFlags,
+  InjectionToken,
+  Injector,
   ModuleWithProviders,
   NgModule,
   Optional,
-  SkipSelf
+  SkipSelf,
 } from '@angular/core';
 
-import { InputComponent } from './input-types/input.component';
-import { ButtonComponent } from './input-types/button.component';
-import { SelectComponent } from './input-types/select.component';
-import { RadiobuttonComponent } from './input-types/radiobutton.component';
-import { DynamicFieldDirective } from './dynamic-field.directive';
-import { DynamicFormComponent } from './dynamic-form.component';
+import {InputComponent} from './input-types/input.component';
+import {ButtonComponent} from './input-types/button.component';
+import {SelectComponent} from './input-types/select.component';
+import {RadiobuttonComponent} from './input-types/radiobutton.component';
+import {DynamicFieldDirective} from './dynamic-field.directive';
+import {DynamicFormComponent} from './dynamic-form.component';
+import {LineBreakComponent} from './input-types/line-break.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import { Config } from './models';
-import { ConfigOptions, ConfigToken } from './config.options';
+import {Config} from './models';
+import {ConfigOptions, ConfigToken} from './config.options';
 import {BaseFieldComponent} from './base.field.component';
+
 export const FORROOT_GUARD = new InjectionToken<void>('FORROOT_GUARD');
+
 export class Guard {
-  constructor() {}
+  constructor() {
+  }
+
   get() {
     return 'guarded';
   }
 }
-
 
 @NgModule({
   declarations: [
@@ -37,6 +44,7 @@ export class Guard {
     ButtonComponent,
     SelectComponent,
     RadiobuttonComponent,
+    LineBreakComponent,
   ],
   imports: [
     CommonModule,
@@ -50,13 +58,16 @@ export class Guard {
     ButtonComponent,
     SelectComponent,
     RadiobuttonComponent,
-    DynamicFormComponent
+    LineBreakComponent,
+    DynamicFormComponent,
   ],
   exports: [DynamicFormComponent],
 })
 export class DynamicFormModule {
 
-  constructor(@Optional() @Inject(FORROOT_GUARD) token: any, @Optional() guard: Guard) {}
+  constructor(
+      @Optional() @Inject(FORROOT_GUARD) token: any, @Optional() guard: Guard) {
+  }
 
   static forRoot(config?: Config): ModuleWithProviders<DynamicFormModule> {
     return {
@@ -64,30 +75,30 @@ export class DynamicFormModule {
       providers: [
         {
           provide: Guard,
-          useClass: Guard
+          useClass: Guard,
         },
         {
           provide: FORROOT_GUARD,
           useFactory: (guard: Guard) => {
             if (guard) {
-              // tslint:disable-next-line: max-line-length
-              throw new Error(`DynamicFormLibModule.forRoot() called twice. Lazy loaded modules should use DynamicFormLibModule.forChild() instead.`);
+              throw new Error(
+                  `DynamicFormLibModule.forRoot() called twice. Lazy loaded modules should use DynamicFormLibModule.forChild() instead.`);
             }
             return new Guard().get();
           },
-          deps: [[Guard, new Optional(), new SkipSelf()]]
+          deps: [[Guard, new Optional(), new SkipSelf()]],
         },
         {
           provide: ANALYZE_FOR_ENTRY_COMPONENTS,
           multi: true,
-          useValue: config || {}
+          useValue: config || {},
         },
         {
           provide: ConfigToken,
-          useValue: config || {}
+          useValue: config || {},
         },
-        ConfigOptions
-      ]
+        ConfigOptions,
+      ],
     };
   }
 
@@ -98,22 +109,23 @@ export class DynamicFormModule {
         {
           provide: ANALYZE_FOR_ENTRY_COMPONENTS,
           multi: true,
-          useValue: config || {}
+          useValue: config || {},
         },
         {
           provide: ConfigToken,
-          useValue: config || {}
+          useValue: config || {},
         },
         {
           provide: ConfigOptions,
           useFactory: (injector: Injector) => {
-            const confSrv = injector.get(ConfigOptions, new ConfigOptions(config), InjectFlags.SkipSelf);
+            const confSrv = injector.get(ConfigOptions,
+                new ConfigOptions(config), InjectFlags.SkipSelf);
             confSrv.mergeConfig(config);
             return confSrv;
           },
-          deps: [Injector]
-        }
-      ]
+          deps: [Injector],
+        },
+      ],
     };
   }
 }

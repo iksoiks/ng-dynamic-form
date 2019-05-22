@@ -4,7 +4,7 @@ import {BaseFieldComponent} from '@gruppoanthea/dynamic-form';
 @Component({
   selector: 'app-date',
   template: `
-      <mat-form-field class="demo-full-width margin-top" [formGroup]="group">
+      <mat-form-field [formGroup]="group" floatLabel="always">
           <input matInput [matDatepicker]="picker" [formControlName]="field.name" [placeholder]="field.label">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -14,7 +14,11 @@ import {BaseFieldComponent} from '@gruppoanthea/dynamic-form';
           </ng-container>
       </mat-form-field>
   `,
-  styles: []
+  styles: [
+      `mat-form-field {
+          display: block;
+      }`,
+  ]
 })
 export class MaterialDateComponent extends BaseFieldComponent implements OnInit {
   ngOnInit() {

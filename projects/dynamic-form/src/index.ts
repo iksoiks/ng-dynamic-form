@@ -10,3 +10,4 @@ export * from './lib/dynamic-form.component';
 export * from './lib/dynamic-form.module';
 export * from './lib/models/field.interface';
 export * from './lib/base.field.component';
+export * from './lib/style-generators';

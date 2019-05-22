@@ -2,9 +2,6 @@
   {
     "type": "input",
     "label": "Username",
-    "styles": [
-      "default"
-    ],
     "inputType": "text",
     "name": "name",
     "validations": [
@@ -126,6 +123,8 @@
   {
     "type": "button",
     "label": "Save",
-    "styles": ["default"]
+    "styles": [
+      "default"
+    ]
   }
 ]

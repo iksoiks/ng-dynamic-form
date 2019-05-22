@@ -6,7 +6,7 @@ import {FieldConfig, DynamicFormComponent} from '@gruppoanthea/dynamic-form';
   template: `
       <a [routerLink]="['']">BACKTOPARENT</a>
       <div class="form">
-          <dynamic-form [fields]="regConfig" (submit)="submit($event)"></dynamic-form>
+          <dynamic-form [fields]="regConfig" (submit)="submit($event)" [flex]="true"></dynamic-form>
       </div>
   `,
   styles: []
