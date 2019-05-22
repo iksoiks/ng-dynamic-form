@@ -14,7 +14,7 @@ export interface FieldConfig {
   collections?: any;
   value?: any;
   validations?: Validator[];
-  events?: any[];
+  events?: any;
 
   /**
    * Style generators to use.

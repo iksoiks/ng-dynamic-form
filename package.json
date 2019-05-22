@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:lib": "ng build dynamic-form"
+    "build:form": "ng build dynamic-form",
+    "build:material": "ng build dynamic-form-material"
   },
   "private": true,
   "dependencies": {

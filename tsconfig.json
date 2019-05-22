@@ -18,10 +18,13 @@
     ],
     "paths": {
       "@gruppoanthea/dynamic-form": [
-        "projects/dynamic-form/src"
+        "dist/dynamic-form"
       ],
       "@gruppoanthea/dynamic-form/*": [
-        "projects/dynamic-form/src/*"
+        "dist/dynamic-form/*"
+      ],
+      "@gruppoanthea/dynamic-form-material": [
+        "projects/dynamic-form-material/src/public-api.ts"
       ]
     }
   }
