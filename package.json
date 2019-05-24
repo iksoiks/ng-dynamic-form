@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "build:form": "ng build dynamic-form",
-    "build:material": "ng build dynamic-form-material"
+    "build:material": "ng build dynamic-form-material",
+    "build": "npm run build:form && npm run build:material"
   },
   "private": true,
   "dependencies": {

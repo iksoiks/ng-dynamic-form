@@ -24,7 +24,7 @@
         "dist/dynamic-form/*"
       ],
       "@gruppoanthea/dynamic-form-material": [
-        "projects/dynamic-form-material/src/public-api.ts"
+        "dist/dynamic-form-material"
       ]
     }
   }

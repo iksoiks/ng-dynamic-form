@@ -1,7 +1,6 @@
 import {
   ANALYZE_FOR_ENTRY_COMPONENTS,
   Inject,
-  InjectFlags,
   InjectionToken,
   Injector,
   ModuleWithProviders,
@@ -118,8 +117,11 @@ export class DynamicFormModule {
         {
           provide: ConfigOptions,
           useFactory: (injector: Injector) => {
-            const confSrv = injector.get(ConfigOptions,
-                new ConfigOptions(config), InjectFlags.SkipSelf);
+            /*
+             * TODO Remove constant 4 and replace it with  InjectFlags.SkipSelf
+             * ...but this causes a crash!
+             */
+            const confSrv = injector.get(ConfigOptions, new ConfigOptions(config), 4);
             confSrv.mergeConfig(config);
             return confSrv;
           },
