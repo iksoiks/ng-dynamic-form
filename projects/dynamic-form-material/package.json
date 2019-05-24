@@ -1,0 +1,12 @@
+{
+  "name": "@gruppoanthea/dynamic-form-material",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@gruppoanthea/dynamic-form": "^1.0.0",
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "@angular/forms": "^7.2.6",
+    "@angular/material": "^7.3.3",
+    "@angular/material-moment-adapter": "^7.3.3"
+  }
+}

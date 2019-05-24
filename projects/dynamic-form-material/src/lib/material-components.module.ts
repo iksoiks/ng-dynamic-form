@@ -9,11 +9,9 @@ import {MaterialCheckboxComponent} from './material-components/material-checkbox
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {MaterialModule} from './material.module';
-import {CustomFieldComponent} from '../form-components/custom.component';
 
 @NgModule({
   declarations: [
-    CustomFieldComponent,
     MaterialButtonComponent,
     MaterialCheckboxComponent,
     MaterialDateComponent,
@@ -22,7 +20,6 @@ import {CustomFieldComponent} from '../form-components/custom.component';
     MaterialSelectComponent,
   ],
   exports: [
-    CustomFieldComponent,
     MaterialButtonComponent,
     MaterialCheckboxComponent,
     MaterialDateComponent,

@@ -1,7 +1,12 @@
 [
   {
-    "type": "mat-input",
+    "type": "input",
+    "component": "mat-input",
     "label": "Username",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "inputType": "text",
     "name": "name",
     "validations": [
@@ -16,8 +21,13 @@
     ]
   },
   {
-    "type": "mat-input",
+    "type": "input",
+    "component": "mat-input",
     "label": "Number",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "inputType": "number",
     "name": "number",
     "validations": [
@@ -31,11 +41,30 @@
         "validationParams": 4,
         "message": "too big"
       }
+    ],
+    "grid": {
+      "type": false,
+      "validations": false,
+      "style": {
+        "maxWidth": "10em"
+      }
+    }
+  },
+  {
+    "type": "line-break",
+    "styles": [
+      "default",
+      "grid"
     ]
   },
   {
-    "type": "mat-input",
-    "label": "Text minmaxlength",
+    "type": "input",
+    "component": "mat-input",
+    "label": "Text min max length",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "inputType": "text",
     "name": "simpleText",
     "validations": [
@@ -52,8 +81,13 @@
     ]
   },
   {
-    "type": "mat-input",
+    "type": "input",
+    "component": "mat-input",
     "label": "Email Address",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "inputType": "email",
     "name": "email",
     "validations": [
@@ -69,8 +103,13 @@
     ]
   },
   {
-    "type": "mat-radiobutton",
+    "type": "radiobutton",
+    "component": "mat-radiobutton",
     "label": "Gender",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "name": "gender",
     "options": [
       "Male",
@@ -79,19 +118,34 @@
     "value": "Male"
   },
   {
-    "type": "mat-date",
+    "type": "date",
+    "component": "mat-date",
     "label": "DOB",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "inputType": "date",
     "name": "dob"
   },
   {
-    "type": "mat-custom",
+    "type": "custom",
+    "component": "mat-custom",
     "label": "bho",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "name": "bho"
   },
   {
-    "type": "mat-select",
+    "type": "select",
+    "component": "mat-select",
     "label": "Country",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "name": "country",
     "value": "UK",
     "options": [
@@ -99,13 +153,23 @@
     ]
   },
   {
-    "type": "mat-checkbox",
+    "type": "checkbox",
+    "component": "mat-checkbox",
     "label": "Accept Terms",
+    "styles": [
+      "default",
+      "grid"
+    ],
     "name": "term",
     "value": true
   },
   {
-    "type": "mat-button",
-    "label": "Save"
+    "type": "button",
+    "component": "mat-button",
+    "label": "Save",
+    "styles": [
+      "default",
+      "grid"
+    ]
   }
 ]

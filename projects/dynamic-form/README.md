@@ -6,7 +6,7 @@ Angular Dynamic form Creator
 ## Getting Started
 Install library:  
 ``` bash  
-$ npm install --save @kernel/dynamic-form  
+$ npm install --save @gruppoanthea/dynamic-form  
 ```  
   
 add DynamicFormModule to app.module.ts  
@@ -186,3 +186,8 @@ export class AppModule {
 ```  
   
 custom Components and Validators can be used in form schema.
+
+## See also
+
+- [Style generators](./doc/style-generators.md)
+  - [Grid](./doc/grid.style-generator.md)

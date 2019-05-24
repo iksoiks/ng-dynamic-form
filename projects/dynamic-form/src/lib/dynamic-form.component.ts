@@ -7,13 +7,22 @@ import {ConfigOptions} from './config.options';
   exportAs: 'dynamicForm',
   selector: 'dynamic-form',
   template: `
-      <form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)" (cancel)="onCancel($event)">
+      <form class="dynamic-form"
+            [ngClass]="{'dynamic-form-flex': flex}" 
+            [formGroup]="form" 
+            (submit)="onSubmit($event)"
+            (cancel)="onCancel($event)"
+      >
           <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form"></ng-container>
       </form>
   `,
+  styles: [
+      '.dynamic-form-flex {display:flex; flex-flow: row wrap;}'
+  ]
 })
 export class DynamicFormComponent implements OnInit, OnChanges {
   @Input() fields: FieldConfig[] = [];
+  @Input() flex = false;
 
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
   @Output() cancel: EventEmitter<any> = new EventEmitter<any>();
