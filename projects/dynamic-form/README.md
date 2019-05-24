@@ -15,7 +15,7 @@ add DynamicFormModule to app.module.ts
 import {NgModule} from '@angular/core';    
 ...  
 import {AppComponent} from './app.component';    
-import {DynamicFormModule} from '../dynamic-form/dynamic-form.module';    
+import {DynamicFormModule} from '@gruppoanthea/dynamic-form';    
     
 @NgModule({    
   declarations: [AppComponent],    
@@ -33,8 +33,7 @@ export class AppModule {
 and call it in app.component.ts:  
 ``` typescript 
 import {Component, ViewChild} from '@angular/core';    
-import {FieldConfig} from '../dynamic-form/field.interface';    
-import {DynamicFormComponent} from '../dynamic-form/dynamic-form.component';    
+import {FieldConfig, DynamicFormComponent} from '@gruppoanthea/dynamic-form';    
     
 @Component({    
   selector: 'app-root',    
@@ -165,7 +164,7 @@ create custom validators with `createAsyncValidator` function
 in order to add custom validators in form schema you need to add it to ValidatorMapper Singleton:  
 ``` typescript  
 ...   
-import {createAsyncValidator} from '@dynamic-form';    
+import {createAsyncValidator} from '@gruppoanthea/dynamic-form';    
     
  ...   
   const customValidators = {    
