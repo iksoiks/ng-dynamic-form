@@ -1,15 +1,14 @@
 {
   "name": "@gruppoanthea/dynamic-form",
   "description": "Angular Dynamic Form Generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/and-valentini/ng-dynamic-form",
   "bugs": "https://github.com/and-valentini/ng-dynamic-form/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/and-valentini/ng-dynamic-form.git"
   },
-  "keywords": [
-    "angular",
+  "keywords": [    "angular",
     "dynamic",
     "form"
   ],

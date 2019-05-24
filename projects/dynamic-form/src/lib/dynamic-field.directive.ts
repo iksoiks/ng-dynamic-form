@@ -6,13 +6,13 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from './models/field.interface';
+import {FieldConfig} from './models';
 import {ConfigOptions} from './config.options';
 import {InputComponent} from './input-types/input.component';
 import {ButtonComponent} from './input-types/button.component';
 import {SelectComponent} from './input-types/select.component';
 import {RadiobuttonComponent} from './input-types/radiobutton.component';
-import {LineBreakComponent} from '@gruppoanthea/dynamic-form/lib/input-types/line-break.component';
+import {LineBreakComponent} from './input-types/line-break.component';
 
 @Directive({
   selector: '[dynamicField]',
