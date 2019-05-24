@@ -189,5 +189,5 @@ custom Components and Validators can be used in form schema.
 
 ## See also
 
-- [Style generators](./doc/style-generators.md)
-  - [Grid](./doc/grid.style-generator.md)
+- [Style generators](https://github.com/and-valentini/ng-dynamic-form/blob/master/projects/dynamic-form/doc/style-generators.md)
+  - [Grid](https://github.com/and-valentini/ng-dynamic-form/blob/master/projects/dynamic-form/doc/grid.style-generator.md)
