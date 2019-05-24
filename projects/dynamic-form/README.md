@@ -15,7 +15,7 @@ add DynamicFormModule to app.module.ts
 import {NgModule} from '@angular/core';    
 ...  
 import {AppComponent} from './app.component';    
-import {DynamicFormModule} from '@gruppoanthea/dynamic-form';    
+import {DynamicFormModule} from '@gruppoanthea/dynamic-form';
     
 @NgModule({    
   declarations: [AppComponent],    
@@ -83,25 +83,24 @@ export interface FieldConfig {
   
 example:  
 ``` typescript  
-[    
-   ...  
-   {   
-     "type": "input",  //required  
-     "name": "name",  //required  
-     "label": "Username",    
-     "inputType": "text",  
-     "value":"Andrea"    
-     "validations": [    
-       {  
-        "name": "required",    
-        "message": "Name Required"    
-       },    
-       {  
-        "name": "custom",    
-        "message": "only 'ciao'"    
-       },  
-       ...  
-    }  
+[
+  {
+    "type": "input", // required
+    "name": "name",  // required
+    "label": "Username",
+    "inputType": "text",
+    "value": "Andrea",
+    "validations": [
+      {
+        "name": "required",
+        "message": "Name Required"
+      },
+      {
+        "name": "custom",
+        "message": "This is a custom validator"
+      }
+    ]
+  }
 ]  
 ```  
   
@@ -139,9 +138,8 @@ in order to add custom components in form schema you need to
  add it to DynamicFormModule:  
 ```  typescript
 ...   
-import {CustomFieldComponent} from './form-components/custom.component';    
-    
-    
+import {CustomFieldComponent} from '@gruppoanthea/dynamic-form';
+
 const customComponents = {    
   'custom': CustomFieldComponent    
 };    

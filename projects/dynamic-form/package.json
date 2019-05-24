@@ -21,11 +21,11 @@
     "build": "ng build"
   },
   "peerDependencies": {
-    "@angular/cdk": "^2.0.0",
-    "@angular/common": "^2.0.0",
-    "@angular/compiler": "^2.0.0",
-    "@angular/core": "^2.0.0",
-    "@angular/forms": "^2.0.0",
+    "@angular/cdk": ">6.0.0",
+    "@angular/common": ">6.0.0",
+    "@angular/compiler": ">6.0.0",
+    "@angular/core": ">6.0.0",
+    "@angular/forms": ">6.0.0",
     "rxjs": "^6.0.0"
   },
   "devDependencies": {

@@ -195,3 +195,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# This is a lib project. We don't want package-lock.json
+package-lock.json

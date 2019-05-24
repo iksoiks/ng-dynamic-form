@@ -20,5 +20,5 @@ export interface FieldConfig {
    * Style generators to use.
    * Default is ['default'].
    */
-  styles: string[];
+  styles?: string[];
 }
